@@ -1,11 +1,12 @@
 p_hw = 8 -- hitbox width
 p_hh = 8 -- hitbox height
 p_ani = {1,2}
-p_anis = 10
+p_anis = 10 -- Overridden in move logic
 p_age = 0
 p_speed = 1.4
+p_current_speed_x = 0
+p_current_speed_y = 0
 p_last_dir = 0
-p_shoot_speed = 2
 p_shoot_delay = 10
 p_last_shoot_frame = 0
 
@@ -42,15 +43,29 @@ function move_player()
     end
 
     if dir > 0 then
-        p_x += dirx[dir]*p_speed
-        p_y += diry[dir]*p_speed
+        p_current_speed_x = dirx[dir]*p_speed
+        p_current_speed_y = diry[dir]*p_speed
+        p_x += p_current_speed_x
+        p_y += p_current_speed_y
     end
+
+    -- Up input
+    if dir == 3 or dir == 5 or dir == 6 then
+       p_anis = 5
+    -- Down input
+    elseif dir == 4 or dir == 7 or dir == 8 then
+        p_anis = .1
+        p_age = 0
+    else
+        p_anis = 10
+    end
+
 end
 
 function shoot()
     -- Only shoot if delay has passed since the last shot
     if btn(4) and T - p_last_shoot_frame >= p_shoot_delay then
-        add_player_bullet( p_x, p_y + 4, 0, p_shoot_speed, 4, 8)
+        add_player_bullet( p_x, p_y + 4, p_current_speed_x, p_current_speed_y, 4, 8)
         p_last_shoot_frame = T
         sfx(1)
      end

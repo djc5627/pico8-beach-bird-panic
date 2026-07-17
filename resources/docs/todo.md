@@ -2,8 +2,10 @@
 
 ## --- In Progress ---
 
-- [x] Spawn player projectile
-- [x] Spawn person
+### Player projectile
+- [x] affected by gravity
+- [x] inherits player speed
+- [ ] drag
 
 ## --- Player ----
 

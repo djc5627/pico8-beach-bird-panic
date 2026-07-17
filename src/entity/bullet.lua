@@ -6,6 +6,7 @@ function add_player_bullet(x, y, spdx, spdy, hw, hh)
         y=y,
         spdx=spdx,
         spdy=spdy,
+        rigidbody=true,
         hw=hw, --hitbox width
         hh=hh, --hitbox height
         ani={4}, --sprite anim keys
@@ -15,17 +16,28 @@ function add_player_bullet(x, y, spdx, spdy, hw, hh)
 end
 
 function update_bullets(table)
-    for s in all(table) do
-        s.x += s.spdx
-        s.y += s.spdy
+    for b in all(table) do
+        move_bullet(b)
 
         -- Update anim
-        s.age+=1
+        b.age+=1
 
-        if s.y<-16 or s.y > 136 then
-            del(table,s)
+        if b.y<-16 or b.y > 136 then
+            del(table,b)
         end
         -- todo delete in the x
+    end
+end
+
+function move_bullet(b)
+    if b.rigidbody==false then
+        b.x += b.spdx
+        b.y += b.spdy
+    else
+        b.spdy += .05 -- gravity
+        b.y += b.spdy
+
+        b.x += b.spdx
     end
 end
 
