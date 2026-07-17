@@ -20,4 +20,6 @@ function _draw()
 
     draw_player()
     draw_bullets(player_bullets)
+
+    _draw_sprite(3, 50, 102)
 end

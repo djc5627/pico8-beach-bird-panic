@@ -3,12 +3,11 @@
 ## --- In Progress ---
 
 - [x] Spawn player projectile
-- [ ] Spawn person
+- [x] Spawn person
 
 ## --- Player ----
 
 ### Movement
-- [ ] Cardinal Directions to move
 - [ ] Screen bounds of movement
 
 ### Attack
