@@ -35,4 +35,4 @@
 - [ ] Spawn sprite particles
 
 ### Collision System
-- [ ] Continous collision detection method
+- [ ] Continuous collision detection method
