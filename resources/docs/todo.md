@@ -2,6 +2,10 @@
 
 ## --- In Progress ---
 
+Player
+- [ ] Draw Sprite
+- [ ] Cardinal Directions to move
+
 ## --- Player ----
 
 ### Movement
@@ -24,15 +28,15 @@
 ## --- Framework ---
 
 ### Sprite System
-- [ ] Draw Sprite to screen
-- [ ] Support for flipping sprites
+- [x] Draw Sprite to screen
+- [x] Support for flipping sprites
 
 ### Animation System
-- [ ] Define sprite anims in sprite system
+- [x] Define sprite anims in sprite system
 - [ ] Update loop updates animations
 
 ### Particle System
 - [ ] Spawn sprite particles
 
 ### Collision System
-- [ ] Continuous collision detection method
+- [x] Continuous collision detection method
