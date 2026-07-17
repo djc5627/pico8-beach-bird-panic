@@ -10,7 +10,7 @@ sprites = {
 
 sprites = {
     {0, 0, 17, 23, false, 7, 8}, -- 1) Player wings down
-    {18, 0, 22, 12, false, 10, 8}, -- 2) Player wings up
+    {17, 0, 23, 13, false, 11, 8}, -- 2) Player wings up
     {0, 26, 13, 13, false, 7, 6} -- 3) Person
 }
 
