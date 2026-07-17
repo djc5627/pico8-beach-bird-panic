@@ -2,7 +2,7 @@
 
 ## --- In Progress ---
 
-- [ ] Spawn player projectile
+- [x] Spawn player projectile
 - [ ] Spawn person
 
 ## --- Player ----
