@@ -9,17 +9,9 @@ sprites = {
 --]]
 
 sprites = {
-    {0, 0, 8, 16, true, 8, 8}, -- 1) Player
-    {8, 0, 4, 16, true, 4, 8}, -- 2) Player Bullet
-    {0, 16, 8, 16, true, 8, 8}, -- 3) Enemy1
-    {8, 16, 8, 16, true, 8, 8}, -- 4) Enemy2
-    {16, 16, 8, 8, false, 4, 4}, -- 5) Enemy Bullet
-    {12, 0, 3, 16, true, 3, 8}, -- 6) Player Bullet 2
-    {15, 0, 2, 16, true, 2, 8}, -- 7) Player Bullet 3
-    {17, 0, 6, 16, true, 6, 8}, -- 8) Muzzle flash 1
-    {23, 0, 7, 16, true, 7, 8}, -- 8) Muzzle flash 2
-    {30, 0, 8, 16, true, 8, 8}, -- 8) Muzzle flash 3
-    {38, 0, 8, 16, true, 8, 8} -- 8) Muzzle flash 4
+    {0, 0, 17, 23, false, 7, 8}, -- 1) Player wings down
+    {18, 0, 22, 12, false, 10, 8}, -- 2) Player wings up
+    {0, 26, 13, 13, false, 7, 6} -- 3) Person
 }
 
 function _draw_sprite(index, x, y)

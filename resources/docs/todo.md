@@ -3,8 +3,11 @@
 ## --- In Progress ---
 
 Player
-- [ ] Draw Sprite
+- [x] Draw Sprite
 - [ ] Cardinal Directions to move
+
+Level
+- [ ] Draw Background
 
 ## --- Player ----
 
@@ -17,10 +20,11 @@ Player
 - [ ] Collision with ground
 
 ### Visuals
-- [ ] Draw Sprite
-- [ ] Animation
+- [x] Draw Sprite
+- [x] Animation
 
 ## --- Level ---
+
 - [ ] Spawner
 - [ ] Score/goal
 - [ ] Scrolling
@@ -30,6 +34,7 @@ Player
 ### Sprite System
 - [x] Draw Sprite to screen
 - [x] Support for flipping sprites
+- [ ] Disable black as transparent color in sprites
 
 ### Animation System
 - [x] Define sprite anims in sprite system
