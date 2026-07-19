@@ -51,6 +51,7 @@ function update_enemies()
                 del(player_bullets, b)
                 e.health -= 1
                 e.flash_frames = 6
+                sfx(1)
             end
         end
 
@@ -62,6 +63,7 @@ function update_enemies()
         if e.health <= 0 then
             del(enemies, e)
             score = score + 1
+            sfx(2)
         end
 
         -- Delete offscreen left

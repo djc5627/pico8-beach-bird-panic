@@ -3,13 +3,8 @@
 ## --- In Progress ---
 
 ### --- Enemy ---
-- [x] Enemy moves from right side of screen
-- [x] Enemy health/damage
+- [ ] Explosion particles
 - [ ] Enemy fires at player
-
-## --- Level ---
-- [x] Spawner
-- [x] Score/goal
 
 ## --- Player ----
 
@@ -20,14 +15,9 @@
 - [ ] Collision with ground
 
 ## --- Level ---
-- [ ] Spawner
-- [ ] Score/goal
 - [ ] Scrolling
 
 ## --- Framework ---
-
-### Sprite System
-- [ ] Disable black as transparent color in sprites
 
 ### Particle System
 - [ ] Spawn sprite particles

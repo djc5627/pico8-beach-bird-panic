@@ -67,6 +67,6 @@ function shoot()
     if btn(4) and T - p_last_shoot_frame >= p_shoot_delay then
         add_player_bullet( p_x, p_y + 4, p_current_speed_x, p_current_speed_y, 4, 8)
         p_last_shoot_frame = T
-        sfx(1)
+        sfx(0)
      end
 end
