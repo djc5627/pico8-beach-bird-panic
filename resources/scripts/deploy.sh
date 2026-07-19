@@ -11,7 +11,7 @@ PORT="22"                                # Default SFTP port is 22
 REMOTE_DIR="/mnt/SDCARD/Roms/PICO/mine"      # Target folder on the SFTP server
 
 # --- Export Game ---
-pico8_dyn "./${PROJECT_NAME}.p8" -export "$EXPORT_GAME_PATH"
+pico8 "./${PROJECT_NAME}.p8" -export "$EXPORT_GAME_PATH"
 
 echo "Starting SFTP transfer..."
 

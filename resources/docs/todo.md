@@ -2,10 +2,14 @@
 
 ## --- In Progress ---
 
-### Player projectile
-- [x] affected by gravity
-- [x] inherits player speed
-- [ ] drag
+### --- Enemy ---
+- [ ] Enemy moves from right side of screen
+- [ ] Enemy health/damage
+- [ ] Enemy fires at player
+
+## --- Level ---
+- [ ] Spawner
+- [ ] Score/goal
 
 ## --- Player ----
 

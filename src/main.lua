@@ -17,9 +17,17 @@ function _draw()
     rectfill(0, 110, 127, 127, 9)
     rectfill(0, 110, 127, 112, 10)
 
+    ----- Draw Sprites
+    -- Set blue as transparent
+    palt(0, false)
+    palt(1, true)
 
     draw_player()
     draw_bullets(player_bullets)
 
     _draw_sprite(3, 50, 102)
+
+    -- Set black as transparent
+    palt(0, true)
+    palt(1, false)
 end
