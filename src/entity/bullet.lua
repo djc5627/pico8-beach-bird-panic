@@ -43,7 +43,7 @@ end
 
 function draw_bullets(table)
     for b in all(table) do
-        _draw_sprite_anim(b)
+        draw_sprite_anim(b)
         if debug then
             pset(b.x, b.y, 8)
             rect(b.x-b.hw/2, b.y-b.hh/2, b.x+b.hw/2, b.y+b.hh/2, 7)

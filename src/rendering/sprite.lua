@@ -12,10 +12,11 @@ sprites = {
     {0, 0, 17, 23, false, 7, 8}, -- 1) Player wings down
     {17, 0, 23, 13, false, 11, 8}, -- 2) Player wings up
     {0, 26, 14, 14, false, 7, 6}, -- 3) Person
-    {17, 16, 5, 8, false, 2, 5} -- 4) Player Poop
+    {17, 16, 5, 8, false, 2, 5}, -- 4) Player Poop
+    {14, 25, 15, 16, false, 6, 7} -- 5) Person Walk
 }
 
-function _draw_sprite(index, x, y)
+function draw_sprite(index, x, y)
     local sprite = sprites[index]
 
     sspr(
@@ -49,6 +50,6 @@ function _draw_sprite(index, x, y)
 end
 
 -- Wrapper to draw sprite that is animated
-function _draw_sprite_anim(obj)
-    _draw_sprite(cyc(obj.age, obj.anis, obj.ani), obj.x, obj.y)
+function draw_sprite_anim(obj)
+    draw_sprite(cyc(obj.age, obj.anis, obj.ani), obj.x, obj.y)
 end

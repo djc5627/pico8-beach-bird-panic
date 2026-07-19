@@ -24,7 +24,7 @@ function update_player()
 end
 
 function draw_player()
-    _draw_sprite(cyc(p_age, p_anis, p_ani), p_x, p_y)
+    draw_sprite(cyc(p_age, p_anis, p_ani), p_x, p_y)
     --print("health: "..p_health, 8, 12, 7)
     if debug then
         rect(p_x-p_hw/2, p_y-p_hh/2, p_x+p_hw/2, p_y+p_hh/2, 7)

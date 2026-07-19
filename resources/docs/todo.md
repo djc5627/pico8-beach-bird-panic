@@ -3,13 +3,13 @@
 ## --- In Progress ---
 
 ### --- Enemy ---
-- [ ] Enemy moves from right side of screen
-- [ ] Enemy health/damage
+- [x] Enemy moves from right side of screen
+- [x] Enemy health/damage
 - [ ] Enemy fires at player
 
 ## --- Level ---
-- [ ] Spawner
-- [ ] Score/goal
+- [x] Spawner
+- [x] Score/goal
 
 ## --- Player ----
 
