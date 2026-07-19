@@ -13,8 +13,8 @@ function update_enemy_spawner()
             105,
             3,
             3,
-            14,
-            14
+            7,
+            7
         )
         last_enemy_spawn_time = time()
     end

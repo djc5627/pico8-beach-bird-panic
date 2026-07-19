@@ -75,6 +75,7 @@ end
 
 function draw_enemies()
     for e in all(enemies) do
+        -- Enable flash frames
         if e.flash_frames > 0 then
             for i=1,15 do
                 pal(i, 8)
@@ -83,13 +84,15 @@ function draw_enemies()
 
         draw_sprite_anim(e)
 
+        -- Undo flash frames for next drawn items
         if e.flash_frames > 0 then
             pal()
         end
-            -- draw hitbox for debugging
-            if debug then
-                rect(e.x-e.hw/2, e.y-e.hh/2, e.x+e.hw/2, e.y+e.hh/2, 7)
-                pset(e.x, e.y, 8)
-            end
+
+        -- draw hitbox for debugging
+        if debug then
+            rect(e.x-e.hw/2, e.y-e.hh/2, e.x+e.hw/2, e.y+e.hh/2, 7)
+            pset(e.x, e.y, 8)
+        end
     end
 end
