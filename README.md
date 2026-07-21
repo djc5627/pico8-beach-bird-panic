@@ -19,9 +19,9 @@ Add the PICO-8 install directory to your path so IntelliJ run configurations can
 - **Linux:** add the PICO-8 directory to the `PATH` environment variable in the IntelliJ run configuration.
 
 ### Run
-```pico8 -run ./beach_bird_panic.p8```
+```pico8 -run ./beach_bird_panic.p8 -root_path "./"```
 For linux might need to use the following:
-```pico8_dyn -run ./beach_bird_panic.p8```
+```pico8_dyn -run ./beach_bird_panic.p8 -root_path "./"```
 
 ### Export
 ```pico8 ./beach_bird_panic.p8 -export beachbirdpanic.p8.png```
