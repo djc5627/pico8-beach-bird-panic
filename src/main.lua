@@ -1,3 +1,4 @@
+game_state = "playing"
 debug = false
 T=0     --global frame counter
 function _init()
@@ -9,8 +10,11 @@ end
 
 function _update60()
     T += 1
-    update_player()
+    if game_state == "playing" then
+        update_player()
+    end
     update_bullets(player_bullets)
+    update_bullets(enemy_bullets)
     update_enemy_spawner()
     update_enemies()
     update_particles()
@@ -28,8 +32,11 @@ function _draw()
     palt(0, false)
     palt(1, true)
 
-    draw_player()
+    if game_state == "playing" then
+        draw_player()
+    end
     draw_bullets(player_bullets)
+    draw_bullets(enemy_bullets)
     draw_enemies()
 
     -- Set black as transparent

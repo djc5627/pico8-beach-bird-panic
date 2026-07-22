@@ -1,4 +1,5 @@
 player_bullets = {}
+enemy_bullets = {}
 
 function add_player_bullet(x, y, spdx, spdy, hw, hh)
     add(player_bullets, {
@@ -13,6 +14,21 @@ function add_player_bullet(x, y, spdx, spdy, hw, hh)
         anis=1, --anim speed
         age=0 --Add random offset based on frame
     })
+end
+
+function add_enemy_bullet(x, y, spdx, spdy, hw, hh)
+    add(enemy_bullets, {
+            x=x,
+            y=y,
+            spdx=spdx,
+            spdy=spdy,
+            rigidbody=false,
+            hw=hw,
+            hh=hh,
+            ani={6},
+            anis=1,
+            age=0
+        })
 end
 
 function update_bullets(table)

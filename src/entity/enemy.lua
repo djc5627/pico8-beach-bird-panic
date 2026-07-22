@@ -21,13 +21,11 @@ function update_enemies()
         -- Update anim
         e.age+=1
 
-        --[[
         -- Shooting
         if T - e.last_shoot_frame > e.shoot_delay then
             e.last_shoot_frame = T
-            _add_enemy_bullet(e.x, e.y + 8, 0, 1, 3, 3)
+            add_enemy_bullet(e.x, e.y + 8, -1.4, -0.6, 3, 3)
         end
-        --]]
 
         -- Move left
         e.x -= .5

@@ -15,11 +15,18 @@ function init_player()
     p_x = 30
     p_y = 30
     p_last_dir = 0
+    p_health = 3
 end
 
 function update_player()
     move_player()
     shoot()
+    handle_player_collisions()
+
+    if p_health <= 0 then
+        death()
+    end
+
     -- Update anim
     p_age+=1
 end
@@ -60,7 +67,6 @@ function move_player()
     else
         p_anis = 10
     end
-
 end
 
 function shoot()
@@ -70,4 +76,32 @@ function shoot()
         p_last_shoot_frame = T
         sfx(0)
      end
+end
+
+function handle_player_collisions()
+    for b in all(enemy_bullets) do
+        local collided = false
+        collided = hit(
+            b.x - b.hw/2,
+            b.y - b.hh/2,
+            b.hw,
+            b.hh,
+            p_x-p_hw/2,
+            p_y-p_hh/2,
+            p_hw,
+            p_hh,
+            b.x - b.hw/2 + b.spdx,
+            b.y - b.hh/2 + b.spdy
+        )
+        if collided then
+            del(enemy_bullets, b)
+            p_health -= 1
+        end
+    end
+end
+
+function death()
+    explode(p_x, p_y)
+    sfx(2)
+    game_state = "game_over"
 end

@@ -12,7 +12,7 @@ function update_enemy_spawner()
             128,
             105,
             3,
-            3,
+            180,
             7,
             7
         )
