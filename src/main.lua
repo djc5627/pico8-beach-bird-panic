@@ -4,6 +4,7 @@ function _init()
     init_player()
     init_enemy_spawner()
     score = 0
+    parts={}
 end
 
 function _update60()
@@ -12,6 +13,7 @@ function _update60()
     update_bullets(player_bullets)
     update_enemy_spawner()
     update_enemies()
+    update_particles()
 end
 
 function _draw()
@@ -33,6 +35,8 @@ function _draw()
     -- Set black as transparent
     palt(0, true)
     palt(1, false)
+
+    draw_particles()
 
     print("score: "..score, 8, 4, 7)
 

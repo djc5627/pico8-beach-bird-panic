@@ -64,6 +64,7 @@ function update_enemies()
             del(enemies, e)
             score = score + 1
             sfx(2)
+            explode(e.x, e.y)
         end
 
         -- Delete offscreen left
