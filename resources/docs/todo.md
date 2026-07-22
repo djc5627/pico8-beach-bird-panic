@@ -1,7 +1,7 @@
 # TODO
 
 ## Important
-- [ ] Enemy fires at player
+- [X] Enemy fires at player
 - [ ] Player death and restart game
 
 ## Less Important
