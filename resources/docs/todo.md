@@ -1,24 +1,10 @@
 # TODO
 
-## --- In Progress ---
-
-### --- Enemy ---
-- [ ] Explosion particles
+## Important
 - [ ] Enemy fires at player
+- [ ] Player death and restart game
 
-## --- Player ----
-
-### Movement
-- [ ] Screen bounds of movement
-
-### Attack
+## Less Important
+- [ ] Scrolling background
 - [ ] Collision with ground
-
-## --- Level ---
-- [ ] Scrolling
-
-## --- Framework ---
-
-### Particle System
-- [ ] Spawn sprite particles
-
+- [ ] Screen-bounded movement
