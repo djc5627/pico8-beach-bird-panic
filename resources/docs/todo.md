@@ -1,9 +1,15 @@
 # TODO
 
 ## Important
-- [x] Player hurt feedback
-  - [x] SoundFX
-  - [x] Freeze-frame
+- [ ] Enemy brains
+  - [ ] Smarter enemy (player can stay still and not die)
+- [ ] Add hawk enemy
+- [ ] Add starfish enemy
+- [ ] XP System
+  - [ ] Add XP bar to HUD
+  - [ ] Add XP gain on enemy death
+  - [ ] Add level up system
+  - [ ] Add player stat upgrades on level up
 
 ## Less Important
 - [ ] Collision with ground
@@ -15,3 +21,5 @@
   - [ ] Second sand layer that scrolls slower
   - [ ] Second tree layer that scrolls slower
 - [ ] Player flash frames update while freeze-frame
+- [ ] Fix sounds too low/high in pitch for miyoo mini to play
+  - [ ] Player shoot sound
