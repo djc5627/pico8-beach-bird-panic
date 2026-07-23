@@ -13,9 +13,10 @@ sprites = {
     {17, 0, 23, 13, false, 11, 8}, -- 2) Player wings up
     {0, 26, 14, 14, false, 7, 6}, -- 3) Person
     {17, 16, 5, 8, false, 2, 5}, -- 4) Player Poop
-    {14, 25, 15, 15, false, 6, 7}, -- 5) Person Walk
+    {14, 25, 12, 15, false, 6, 7}, -- 5) Person Walk
     {24, 16, 8, 8, false, 8, 8}, -- 6) Enemy Bullet
-    {0, 40, 42, 57, false, 0, 0} -- 7) Palm Tree
+    {0, 40, 42, 57, false, 0, 0}, -- 7) Palm Tree
+    {26, 26, 16, 8, false, 0, 0} -- 8) Cloud
 }
 
 function draw_sprite(index, x, y)

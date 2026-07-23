@@ -1,13 +1,20 @@
 # TODO
 
 ## Important
-- [ ] Scrolling background
-  - [ ] Parallax effect
+- [x] Scrolling background
   - [x] Background objects
-  - [ ] Clouds
+  - [x] Clouds
   - [x] Scrolling sand
+- [ ] Player hurt feedback
+  - [ ] SoundFX
+  - [ ] Freeze-frame
 
 ## Less Important
 - [ ] Collision with ground
 - [ ] Screen-bounded movement
-- [ ] Separate generic particle code from explosion code
+- [ ] Refactor explosion code
+  - [ ] Separate generic particle code from explosion code
+  - [ ] Split tools like rndrange()
+- [ ] Parallax effect
+  - [ ] Second sand layer that scrolls slower
+  - [ ] Second tree layer that scrolls slower

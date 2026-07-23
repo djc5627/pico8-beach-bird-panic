@@ -2,33 +2,41 @@ x_scroll = 0
 x_scroll_speed = 0.33
 
 function init_level_spawner()
-    palms = {}
-    next_palm_spawn_frame = T + palm_spawn_delay()
-end
-
-function palm_spawn_delay()
-    -- TODO Simplify this
-    -- triangular distribution feels less mechanical than uniform intervals
-    return 120 + flr(rnd(150) + rnd(150))
+    level_objs = {}
+    next_palm_spawn_frame = T
+    next_cloud_spawn_frame = T
 end
 
 function add_palm_tree()
-    add(palms, {
+    add(level_objs, {
         x = 144,
         y = 54,
+        spi = 7
+    })
+end
+
+function add_cloud()
+    add(level_objs, {
+        x = 144,
+        y = rndrange(10,40),
+        spi = 8
     })
 end
 
 function update_level_spawner()
     if T >= next_palm_spawn_frame then
         add_palm_tree()
-        next_palm_spawn_frame = T + palm_spawn_delay()
+        next_palm_spawn_frame = T + rndrange(120, 150)
+    end
+    if T >= next_cloud_spawn_frame then
+        add_cloud()
+        next_cloud_spawn_frame = T + rndrange(60, 120)
     end
 
-    for p in all(palms) do
+    for p in all(level_objs) do
         p.x -= x_scroll_speed
         if p.x < -48 then
-            del(palms, p)
+            del(level_objs, p)
         end
     end
 
@@ -44,8 +52,8 @@ function draw_level_spawner()
     rectfill(0, 110, 127, 112, 169)
     fillp()
 
-    for p in all(palms) do
-        draw_sprite(7, p.x, p.y)
+    for p in all(level_objs) do
+        draw_sprite(p.spi, p.x, p.y)
     end
 end
 

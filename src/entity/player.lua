@@ -47,7 +47,7 @@ function draw_player()
 
     draw_sprite(cyc(p_age, p_anis,
         p_ani), p_x, p_y)
-    print("health: "..p_health, 8, 12, 7)
+    print("\^o05ahealth: "..p_health, 8, 12, 7)
 
      -- Undo flash frames for next drawn items
     if p_flash_frames > 0 then

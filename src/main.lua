@@ -56,7 +56,7 @@ function _draw()
 
     draw_particles()
 
-    print("score: "..score, 8, 4, 7)
+    print("\^o05ascore: "..score, 8, 4, 7)
 
     if game_state == "game_over" then
         print("\^o05agame over", 45, 40, 7)

@@ -13,7 +13,7 @@ function update_particles()
 end
 
 function rndrange(low,high)
- return flr(rnd(high+1-low)+low)
+ return rnd(high-low)+low
 end
 
 function blob(p)
