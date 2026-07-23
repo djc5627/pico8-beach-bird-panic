@@ -7,7 +7,11 @@ function _init()
     init_enemy_spawner()
     score = 0
     parts={}
-    poke(0x5f5c, -1) -- Disables btnp auto-repeat globally
+
+    -- Disables btnp auto-repeat globally
+    -- Did this so held button doesn't auto-restart
+    -- the game when game over
+    poke(0x5f5c, -1)
 end
 
 function _update60()
