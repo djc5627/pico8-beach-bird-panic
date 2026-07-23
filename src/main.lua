@@ -31,8 +31,11 @@ function _draw()
     cls()
     -- background
     rectfill(0, 0, 127, 127, 12)
-    rectfill(0, 110, 127, 127, 9)
-    rectfill(0, 110, 127, 112, 10)
+    fillp(0b1011111010111111)
+    rectfill(0, 110, 127, 127, 154)
+    fillp(0b1001111111111111)
+    rectfill(0, 110, 127, 112, 169)
+    fillp()
 
     ----- Draw Sprites
     toggle_sprite_transparency(true)

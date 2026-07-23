@@ -2,7 +2,9 @@
 
 ## Important
 - [ ] Scrolling background
-- [x] Player flashes when takes damage
+  - [ ] Parallax effect
+  - [ ] Background objects
+  - [ ] Clouds
 
 ## Less Important
 - [ ] Collision with ground
