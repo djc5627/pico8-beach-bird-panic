@@ -93,7 +93,7 @@ end
 
 function shoot()
     -- Only shoot if delay has passed since the last shot
-    if btn(4) and T - p_last_shoot_frame >= p_shoot_delay then
+    if btn(5) and T - p_last_shoot_frame >= p_shoot_delay then
         add_player_bullet( p_x, p_y + 4, p_shoot_speed, 0, 4, 8)
         p_last_shoot_frame = T
         sfx(0)

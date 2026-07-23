@@ -3,8 +3,10 @@
 ## Important
 - [ ] Enemy brains
   - [ ] Smarter enemy (player can stay still and not die)
-- [ ] Add hawk enemy
 - [ ] Add starfish enemy
+  - [ ] Jumps up, matches player y position, then shoots left
+- [ ] Add hawk enemy
+
 - [ ] XP System
   - [ ] Add XP bar to HUD
   - [ ] Add XP gain on enemy death
