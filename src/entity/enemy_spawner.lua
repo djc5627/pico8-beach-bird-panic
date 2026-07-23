@@ -14,7 +14,7 @@ function update_enemy_spawner()
             128,
             108,
             3,
-            180,
+            180/framerate_mult,
             7,
             7
         )

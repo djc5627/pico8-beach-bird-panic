@@ -1,5 +1,5 @@
 x_scroll = 0
-x_scroll_speed = 0.33
+x_scroll_speed = 0.25*framerate_mult
 
 function init_level_spawner()
     level_objs = {}
@@ -26,11 +26,11 @@ end
 function update_level_spawner()
     if T >= next_palm_spawn_frame then
         add_palm_tree()
-        next_palm_spawn_frame = T + rndrange(120, 150)
+        next_palm_spawn_frame = T + rndrange(120, 150)/framerate_mult
     end
     if T >= next_cloud_spawn_frame then
         add_cloud()
-        next_cloud_spawn_frame = T + rndrange(60, 120)
+        next_cloud_spawn_frame = T + rndrange(60, 120)/framerate_mult
     end
 
     for p in all(level_objs) do

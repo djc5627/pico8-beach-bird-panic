@@ -2,7 +2,7 @@
 
 # --- CHANGE THESE FOR EACH PROJECT ---
 PROJECT_NAME="beach_bird_panic"   # Cartridge name without extension
-EXPORT_GAME_PATH="./beachbirdpanic.p8.png"     # File on your local machine
+EXPORT_GAME_PATH="./beachbirdpanic_30fps.p8.png"     # File on your local machine
 
 # --- CONFIGURATION ---
 USER="onion"

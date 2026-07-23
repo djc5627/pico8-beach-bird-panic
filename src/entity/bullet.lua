@@ -36,7 +36,7 @@ function update_bullets(table)
         move_bullet(b)
 
         -- Update anim
-        b.age+=1
+        b.age+=1*framerate_mult
 
         if b.y<-16 or b.y > 136 then
             del(table,b)
@@ -47,13 +47,13 @@ end
 
 function move_bullet(b)
     if b.rigidbody==false then
-        b.x += b.spdx
-        b.y += b.spdy
+        b.x += b.spdx*framerate_mult
+        b.y += b.spdy*framerate_mult
     else
-        b.spdy += .05 -- gravity
-        b.y += b.spdy
+        b.spdy += .05*framerate_mult -- gravity
+        b.y += b.spdy*framerate_mult
 
-        b.x += b.spdx
+        b.x += b.spdx*framerate_mult
     end
 end
 

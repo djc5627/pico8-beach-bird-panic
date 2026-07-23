@@ -2,6 +2,7 @@ game_state = "playing"
 debug = false
 T=0     --global frame counter
 freeze_frames = 0
+framerate_mult = 2
 function _init()
     init_player()
     init_level_spawner()
@@ -15,7 +16,7 @@ function _init()
     poke(0x5f5c, -1)
 end
 
-function _update60()
+function _update()
     T += 1
 
     if freeze_frames > 0 then

@@ -104,7 +104,7 @@ end
 function dopart(p)
  if p.wait then
   -- wait countodwn
-  p.wait-=1
+  p.wait-=1*framerate_mult
   if p.wait<=0 then
    p.wait=nil
   end
@@ -118,7 +118,7 @@ function dopart(p)
    p.r=p.r or 1
    p.ctabv=p.ctabv or 0
   end
-  p.age+=1
+  p.age+=1*framerate_mult
 
   --animate color
   if p.ctab then

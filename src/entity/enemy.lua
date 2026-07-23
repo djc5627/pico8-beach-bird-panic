@@ -19,7 +19,7 @@ end
 function update_enemies()
     for e in all(enemies) do
         -- Update anim
-        e.age+=1
+        e.age+=1*framerate_mult
 
         -- Shooting
         if T - e.last_shoot_frame > e.shoot_delay then
@@ -29,7 +29,7 @@ function update_enemies()
         end
 
         -- Move left
-        e.x -= .5
+        e.x -= .5*framerate_mult
 
         -- Collisions
         for b in all(player_bullets) do
@@ -49,7 +49,7 @@ function update_enemies()
             if collided then
                 del(player_bullets, b)
                 e.health -= 1
-                e.flash_frames = 6
+                e.flash_frames = 6/framerate_mult
                 sfx(1)
             end
         end

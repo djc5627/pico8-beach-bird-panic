@@ -3,12 +3,12 @@ p_hh = 8 -- hitbox height
 p_ani = {1,2}
 p_anis = 10 -- Overridden in move logic
 p_age = 0
-p_speed = 1.4
+p_speed = 1.4*framerate_mult
 p_current_speed_x = 0
 p_current_speed_y = 0
 p_last_dir = 0
-p_shoot_speed = 3
-p_shoot_delay = 10
+p_shoot_speed = 3*framerate_mult
+p_shoot_delay = 10/framerate_mult
 p_last_shoot_frame = 0
 p_flash_frames = 0
 
@@ -117,7 +117,7 @@ function handle_player_collisions()
         )
         if collided then
             del(enemy_bullets, b)
-            p_flash_frames = 6
+            p_flash_frames = 6/framerate_mult
             p_health -= 1
             if p_health > 0 then
                 freeze_frames = 12
