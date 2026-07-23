@@ -6,11 +6,18 @@ function _init()
     init_enemy_spawner()
     score = 0
     parts={}
+    poke(0x5f5c, -1) -- Disables btnp auto-repeat globally
 end
 
 function _update60()
     T += 1
-    if game_state == "playing" then
+
+    if game_state == "game_over" then
+        if btnp(4) or btnp(5) then
+            game_state = "playing"
+            _init()
+        end
+    else
         update_player()
     end
     update_bullets(player_bullets)
@@ -47,4 +54,9 @@ function _draw()
 
     print("score: "..score, 8, 4, 7)
 
+    if game_state == "game_over" then
+        print("\^o05agame over", 45, 40, 7)
+        print("\^o05apress o/x to restart", 25, 50, 7)
+        return
+    end
 end

@@ -2,6 +2,8 @@ function init_enemy_spawner()
     e_spawn_rate = 2 -- seconds between spawns
     last_enemy_spawn_time = time()
     max_enemies = 10
+    enemies = {}
+    enemy_bullets = {}
 end
 
 function update_enemy_spawner()

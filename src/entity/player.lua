@@ -16,6 +16,7 @@ function init_player()
     p_y = 30
     p_last_dir = 0
     p_health = 3
+    player_bullets = {}
 end
 
 function update_player()
