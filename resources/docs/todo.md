@@ -3,9 +3,9 @@
 ## Important
 - [ ] Scrolling background
   - [ ] Parallax effect
-  - [ ] Background objects
+  - [x] Background objects
   - [ ] Clouds
-  - [ ] Scrolling sand
+  - [x] Scrolling sand
 
 ## Less Important
 - [ ] Collision with ground

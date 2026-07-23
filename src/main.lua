@@ -35,21 +35,19 @@ end
 
 function _draw()
     cls()
+
     -- background
     rectfill(0, 0, 127, 127, 12)
-    fillp(0b1011111010111111)
-    rectfill(0, 110, 127, 127, 154)
-    fillp(0b1001111111111111)
-    rectfill(0, 110, 127, 112, 169)
-    fillp()
 
     ----- Draw Sprites
     toggle_sprite_transparency(true)
 
+    draw_level_spawner()
+
     if game_state == "playing" then
-        draw_level_spawner()
         draw_player()
     end
+
     draw_bullets(player_bullets)
     draw_bullets(enemy_bullets)
     draw_enemies()
