@@ -12,7 +12,7 @@ function update_enemy_spawner()
         time() - last_enemy_spawn_time >= e_spawn_rate then
         add_enemy(
             128,
-            103,
+            108,
             3,
             180,
             7,

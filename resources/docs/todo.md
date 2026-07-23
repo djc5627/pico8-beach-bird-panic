@@ -1,10 +1,6 @@
 # TODO
 
 ## Important
-- [x] Scrolling background
-  - [x] Background objects
-  - [x] Clouds
-  - [x] Scrolling sand
 - [ ] Player hurt feedback
   - [ ] SoundFX
   - [ ] Freeze-frame

@@ -10,7 +10,7 @@ end
 function add_palm_tree()
     add(level_objs, {
         x = 144,
-        y = 54,
+        y = 59,
         spi = 7
     })
 end
@@ -18,7 +18,7 @@ end
 function add_cloud()
     add(level_objs, {
         x = 144,
-        y = rndrange(10,40),
+        y = rndrange(10,45),
         spi = 8
     })
 end
@@ -46,10 +46,10 @@ end
 function draw_level_spawner()
     -- Sand ground
     fillp_local(0b1011111010111111, x_scroll, 0)
-    rectfill(0, 110, 127, 127, 154)
+    rectfill(0, 115, 127, 128, 154)
 
-    fillp_local(0b1001111111111111, x_scroll, 0)
-    rectfill(0, 110, 127, 112, 169)
+    fillp_local(0b1111001111111111, x_scroll, 0)
+    rectfill(0, 115, 127, 117, 169)
     fillp()
 
     for p in all(level_objs) do
