@@ -2,7 +2,8 @@
 
 ## Important
 - [X] Enemy fires at player
-- [ ] Player death and restart game
+- [X] Player death
+- [ ] Restart game
 
 ## Less Important
 - [ ] Scrolling background

@@ -7,8 +7,6 @@
 3. Create a `_pico8` folder at the root of this project if it does not already exist.
 4. Place `pico8.lua` inside `_pico8/` so IntelliJ can use the PICO-8 definitions for Lua completion and navigation.
 
-The `_pico8/` folder is already gitignored, so the downloaded definitions stay local to your machine.
-
 ## Run configurations
 
 ### Prerequisites
@@ -33,4 +31,12 @@ For linux might need to use the following:
 
 This script will export the game and deploy it to Miyoo Mini Plus pico8 cart directory using sftp. The Miyoo Mini Plus must be on the same WIFI network and host must be updated with the ip address of the device.
 
+## Remaining Issues
+
+- EmmyLua plugin and current `pico8.lua` definitions do not recognize several PICO-8-specific language/runtime features.
+- Unsupported/unrecognized items currently include:
+  - Binary number literals (for example `0b1010`)
+  - Compound assignment operators (for example `+=`, `-=`, `*=`, `/=`)
+  - `time()` built-in usage
+  - PICO-8 special key/button characters for ⬅️➡️⬆️⬇️🅾️❎
 
