@@ -24,7 +24,8 @@ function update_enemies()
         -- Shooting
         if T - e.last_shoot_frame > e.shoot_delay then
             e.last_shoot_frame = T
-            add_enemy_bullet(e.x, e.y + 8, -1.4, -0.6, 3, 3)
+            add_enemy_bullet(e.x, e.y + 8,
+            -1.4, -0.6, 3, 3)
         end
 
         -- Move left
@@ -86,6 +87,7 @@ function draw_enemies()
         -- Undo flash frames for next drawn items
         if e.flash_frames > 0 then
             pal()
+            toggle_sprite_transparency(true)
         end
 
         -- draw hitbox for debugging

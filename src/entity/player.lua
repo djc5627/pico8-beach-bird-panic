@@ -10,6 +10,7 @@ p_last_dir = 0
 p_shoot_speed = 3
 p_shoot_delay = 10
 p_last_shoot_frame = 0
+p_flash_frames = 0
 
 function init_player()
     p_x = 30
@@ -24,6 +25,10 @@ function update_player()
     shoot()
     handle_player_collisions()
 
+    if p_flash_frames > 0 then
+        p_flash_frames -= 1
+    end
+
     if p_health <= 0 then
         death()
     end
@@ -33,10 +38,26 @@ function update_player()
 end
 
 function draw_player()
-    draw_sprite(cyc(p_age, p_anis, p_ani), p_x, p_y)
-    --print("health: "..p_health, 8, 12, 7)
+    -- Handle flash frames
+    if p_flash_frames > 0 then
+        for i=1,15 do
+            pal(i, 8)
+        end
+    end
+
+    draw_sprite(cyc(p_age, p_anis,
+        p_ani), p_x, p_y)
+    print("health: "..p_health, 8, 12, 7)
+
+     -- Undo flash frames for next drawn items
+    if p_flash_frames > 0 then
+        pal()
+        toggle_sprite_transparency(true)
+    end
+
     if debug then
-        rect(p_x-p_hw/2, p_y-p_hh/2, p_x+p_hw/2, p_y+p_hh/2, 7)
+        rect(p_x-p_hw/2, p_y-p_hh/2,
+            p_x+p_hw/2, p_y+p_hh/2, 7)
         pset(p_x, p_y, 8)
     end
 end
@@ -96,6 +117,7 @@ function handle_player_collisions()
         )
         if collided then
             del(enemy_bullets, b)
+            p_flash_frames = 6
             p_health -= 1
         end
     end

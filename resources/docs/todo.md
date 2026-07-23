@@ -1,11 +1,9 @@
 # TODO
 
 ## Important
-- [X] Enemy fires at player
-- [X] Player death
-- [ ] Restart game
+- [ ] Scrolling background
+- [x] Player flashes when takes damage
 
 ## Less Important
-- [ ] Scrolling background
 - [ ] Collision with ground
 - [ ] Screen-bounded movement

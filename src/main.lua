@@ -35,9 +35,7 @@ function _draw()
     rectfill(0, 110, 127, 112, 10)
 
     ----- Draw Sprites
-    -- Set blue as transparent
-    palt(0, false)
-    palt(1, true)
+    toggle_sprite_transparency(true)
 
     if game_state == "playing" then
         draw_player()
@@ -46,9 +44,7 @@ function _draw()
     draw_bullets(enemy_bullets)
     draw_enemies()
 
-    -- Set black as transparent
-    palt(0, true)
-    palt(1, false)
+    toggle_sprite_transparency(false)
 
     draw_particles()
 
@@ -58,5 +54,17 @@ function _draw()
         print("\^o05agame over", 45, 40, 7)
         print("\^o05apress o/x to restart", 25, 50, 7)
         return
+    end
+end
+
+function toggle_sprite_transparency(enable)
+    if enable then
+        -- Set blue as transparent
+        palt(0, false)
+        palt(1, true)
+    else
+        -- Set black as transparent
+        palt(0, true)
+        palt(1, false)
     end
 end
