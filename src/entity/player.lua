@@ -119,6 +119,10 @@ function handle_player_collisions()
             del(enemy_bullets, b)
             p_flash_frames = 6
             p_health -= 1
+            if p_health > 0 then
+                freeze_frames = 12
+                sfx(3)
+            end
         end
     end
 end

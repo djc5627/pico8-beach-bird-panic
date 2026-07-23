@@ -1,6 +1,7 @@
 game_state = "playing"
 debug = false
 T=0     --global frame counter
+freeze_frames = 0
 function _init()
     init_player()
     init_level_spawner()
@@ -17,6 +18,11 @@ end
 function _update60()
     T += 1
 
+    if freeze_frames > 0 then
+        freeze_frames -= 1
+        return
+    end
+
     if game_state == "game_over" then
         if btnp(4) or btnp(5) then
             game_state = "playing"
@@ -25,6 +31,7 @@ function _update60()
     else
         update_player()
     end
+
     update_bullets(player_bullets)
     update_bullets(enemy_bullets)
     update_level_spawner()
