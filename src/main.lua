@@ -3,6 +3,7 @@ debug = false
 T=0     --global frame counter
 function _init()
     init_player()
+    init_level_spawner()
     init_enemy_spawner()
     score = 0
     parts={}
@@ -22,6 +23,7 @@ function _update60()
     end
     update_bullets(player_bullets)
     update_bullets(enemy_bullets)
+    update_level_spawner()
     update_enemy_spawner()
     update_enemies()
     update_particles()
@@ -41,6 +43,7 @@ function _draw()
     toggle_sprite_transparency(true)
 
     if game_state == "playing" then
+        draw_level_spawner()
         draw_player()
     end
     draw_bullets(player_bullets)

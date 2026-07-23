@@ -46,6 +46,7 @@ Style and project conventions
 - Small modules: model each concept in its own file (`player.lua`, `enemy.lua`, `bullet.lua`, `starfield.lua`). Export a minimal table or set of functions and keep internal state local to the file.
 - Prefer plain tables as objects and simple metatables or the included `class.lua` if the repo already uses one. Keep metatable usage lightweight.
 - Use comments to explain magic numbers (sprite indices, speed constants, timing frames). Prefer named constants at the top of the file.
+- DO NOT correct existing syntax errors or unexpected characters unless asked to.
 
 Common patterns to prefer
 ------------------------
