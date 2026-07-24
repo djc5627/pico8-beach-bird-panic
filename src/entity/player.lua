@@ -89,6 +89,11 @@ function move_player()
     else
         p_anis = 10
     end
+
+    -- Clamp player position to screen bounds
+    p_x = max(p_hw/2, min(128 - p_hw/2, p_x))
+    p_y = max(p_hh/2, min(128 - p_hh/2, p_y))
+
 end
 
 function shoot()

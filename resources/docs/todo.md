@@ -15,7 +15,6 @@
 
 ## Less Important
 - [ ] Collision with ground
-- [ ] Screen-bounded movement
 - [ ] Refactor explosion code
   - [ ] Separate generic particle code from explosion code
   - [ ] Split tools like rndrange()
