@@ -38,10 +38,10 @@ function update_bullets(table)
         -- Update anim
         b.age+=1
 
-        if b.y<-16 or b.y > 136 then
-            del(table,b)
+        -- Delete bullets offscreen
+        if b.x < -16 or b.x > 142 or b.y < -16 or b.y > 142 then
+            del(table, b)
         end
-        -- todo delete in the x
     end
 end
 
