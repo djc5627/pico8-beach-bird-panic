@@ -1,11 +1,16 @@
 # TODO
 
 ## Important
-- [ ] Enemy brains
+- [X] Enemy brains
   - [ ] Smarter enemy (player can stay still and not die)
-- [ ] Add starfish enemy
-  - [ ] Jumps up, matches player y position, then shoots left
-- [ ] Add hawk enemy
+- [X] Add starfish enemy
+  - [X] Jumps up, matches player y position, then shoots left
+
+- [ ] Enemy Behaviors
+  - [X] Move at velocity
+  - [X] Move towards player (doFollowX, doFollowY)
+  - [X] Wait
+  - [ ] Shoot
 
 - [ ] XP System
   - [ ] Add XP bar to HUD
