@@ -11,10 +11,10 @@ brains = {
     }
 }
 
-function add_walk_enemy(x, y, health, shoot_delay, hw, hh)
+function add_walk_enemy(health, shoot_delay, hw, hh)
     add(enemies, {
-        x=x,
-        y=y,
+        x=128,
+        y=108,
         health=health,
         shoot_delay=shoot_delay,
         hw=hw, --hitbox width
@@ -37,10 +37,10 @@ function add_walk_enemy(x, y, health, shoot_delay, hw, hh)
     })
 end
 
-function add_launch_enemy(x, y, health, shoot_delay, hw, hh)
+function add_launch_enemy(health, shoot_delay, hw, hh)
     add(enemies, {
-        x=x,
-        y=y,
+        x=128,
+        y=-10,
         health=health,
         shoot_delay=shoot_delay,
         hw=hw, --hitbox width

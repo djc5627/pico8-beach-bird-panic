@@ -13,8 +13,6 @@ function update_enemy_spawner()
         -- Randomly spawn launch enemy or walk enemy
         if rnd(1) < 0.5 then
             add_walk_enemy(
-                128,
-                108,
                 3,
                 180,
                 7,
@@ -22,8 +20,6 @@ function update_enemy_spawner()
             )
         else
             add_launch_enemy(
-                128,
-                108,
                 3,
                 180,
                 7,
