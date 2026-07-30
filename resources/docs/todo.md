@@ -12,8 +12,17 @@
   - [X] Wait
   - [X] Interrupt brain commands and go to next command
   - [ ] Shoot
+  - [ ] Command to wait for player LOS (to interrupt to shoot) takes angle LOS
 
-[ ] Better player shooting
+- [ ] Better player shooting
+- [ ] Bullet Splat
+- [ ] Bullet Stamina Meter
+- [ ] Shoot Slower when empty
+- [ ] Press O to shoot all bullets at once
+- [ ] Press O to do barrel roll dodge? or Parry?
+- [ ] pick secondary attach via upgrades?
+- [ ] Slower, more deliberate combat
+- [ ] Bullets carry some momentum?
 
 - [ ] XP System
   - [ ] Add XP bar to HUD
