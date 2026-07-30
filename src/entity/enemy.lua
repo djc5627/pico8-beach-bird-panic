@@ -6,7 +6,7 @@ brains = {
     { -- 2) Launch enemy
         "HED", 0.25, 0.5, 0,
         "WAIT", 30, 0, 0,
-        "FOLPY", 0.5, 0, 120,
+        "FOLPY", 0.5, 0, 9999,
         "HED", 0.25, 2, 0
     }
 }
@@ -66,9 +66,12 @@ end
 function update_enemies()
     for e in all(enemies) do
         -- Execute current command every frame
-        execute_cmd(e, e.cmd, e.cmd_arg1, e.cmd_arg2)
+        local should_continue = execute_cmd(e, e.cmd, e.cmd_arg1, e.cmd_arg2)
 
-        if e.wait > 0 then
+        -- If command returns false (self-interrupt), force next instruction
+        if should_continue == false then
+            e.wait = 0
+        elseif e.wait > 0 then
             e.wait -= 1
         else
             do_brain(e, 0)
@@ -140,6 +143,7 @@ function execute_cmd(e, cmd, arg1, arg2)
     if cmd == "HED" then
         e.ang = arg1
         e.spd = arg2
+        return true
     elseif cmd == "FOLPY" then
         e.spd = arg1
         if p_y < e.y then
@@ -147,7 +151,14 @@ function execute_cmd(e, cmd, arg1, arg2)
         else
             e.ang = 0 -- Move down
         end
+        
+        -- Self-interrupt: if player is within 3 units, stop
+        if abs(p_y - e.y) < 3 then
+            return false  -- Interrupt, move to next command
+        end
+        return true  -- Continue executing
     end
+    return true
 end
 
 function do_brain(e, depth)

@@ -2,7 +2,7 @@
 
 ## Important
 - [X] Enemy brains
-  - [ ] Smarter enemy (player can stay still and not die)
+  - [X] Smarter enemy (player can stay still and not die)
 - [X] Add starfish enemy
   - [X] Jumps up, matches player y position, then shoots left
 
@@ -10,7 +10,10 @@
   - [X] Move at velocity
   - [X] Move towards player (doFollowX, doFollowY)
   - [X] Wait
+  - [X] Interrupt brain commands and go to next command
   - [ ] Shoot
+
+[ ] Better player shooting
 
 - [ ] XP System
   - [ ] Add XP bar to HUD
