@@ -14,18 +14,17 @@ function update_enemy_spawner()
         if rnd(1) < 0.5 then
             add_walk_enemy(
                 3,
-                180,
                 7,
                 7
             )
         else
             add_launch_enemy(
                 3,
-                180,
                 7,
                 7
             )
         end
+
         last_enemy_spawn_time = time()
     end
 end

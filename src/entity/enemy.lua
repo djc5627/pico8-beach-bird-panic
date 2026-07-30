@@ -1,22 +1,26 @@
 enemies = {}
 brains = {
     { -- 1) Walk left enemy
-        "HED", 0.25, 0.5, 0
+        "HED", 0.25, 0.5, 0,
+        "LOS", 0.35, .005, -1,
+        "HED", 0, 0, 0,
+        "WAIT", 30, 0, 0,
+        "SHOOT", 0.35, 1, 0,
+        "WAIT", 60, 0, 0,
     },
     { -- 2) Launch enemy
         "HED", 0.25, 0.5, 0,
         "WAIT", 30, 0, 0,
-        "FOLPY", 0.5, 0, 9999,
-        "HED", 0.25, 2, 0
+        "FOLPY", 0.5, 0, -1,
+        "HED", 0.25, 2, -1
     }
 }
 
-function add_walk_enemy(health, shoot_delay, hw, hh)
+function add_walk_enemy(health, hw, hh)
     add(enemies, {
         x=128,
         y=108,
         health=health,
-        shoot_delay=shoot_delay,
         hw=hw, --hitbox width
         hh=hh, --hitbox height
         spd=1,
@@ -32,17 +36,15 @@ function add_walk_enemy(health, shoot_delay, hw, hh)
         cmd = nil, -- current command being executed
         cmd_arg1 = 0, -- command args cached
         cmd_arg2 = 0,
-        last_shoot_frame=0,
         flash_frames=0
     })
 end
 
-function add_launch_enemy(health, shoot_delay, hw, hh)
+function add_launch_enemy(health, hw, hh)
     add(enemies, {
         x=128,
         y=-10,
         health=health,
-        shoot_delay=shoot_delay,
         hw=hw, --hitbox width
         hh=hh, --hitbox height
         spd=1,
@@ -58,7 +60,6 @@ function add_launch_enemy(health, shoot_delay, hw, hh)
         cmd = nil, -- current command being executed
         cmd_arg1 = 0, -- command args cached
         cmd_arg2 = 0,
-        last_shoot_frame=0,
         flash_frames=0
     })
 end
@@ -71,7 +72,9 @@ function update_enemies()
         -- If command returns false (self-interrupt), force next instruction
         if should_continue == false then
             e.wait = 0
-        elseif e.wait > 0 then
+        end
+
+        if e.wait > 0 then
             e.wait -= 1
         else
             do_brain(e, 0)
@@ -86,16 +89,6 @@ function update_enemies()
 
         -- Update anim
         e.age+=1
-
-
-        --[[
-        -- Shooting
-        if T - e.last_shoot_frame > e.shoot_delay then
-            e.last_shoot_frame = T
-            add_enemy_bullet(e.x, e.y + 8,
-            -1.4, -0.6, 3, 3)
-        end
-        --]]
 
         -- Collisions
         for b in all(player_bullets) do
@@ -139,63 +132,6 @@ function update_enemies()
     end
 end
 
-function execute_cmd(e, cmd, arg1, arg2)
-    if cmd == "HED" then
-        e.ang = arg1
-        e.spd = arg2
-        return true
-    elseif cmd == "FOLPY" then
-        e.spd = arg1
-        if p_y < e.y then
-            e.ang = 0.5 -- Move up
-        else
-            e.ang = 0 -- Move down
-        end
-        
-        -- Self-interrupt: if player is within 3 units, stop
-        if abs(p_y - e.y) < 3 then
-            return false  -- Interrupt, move to next command
-        end
-        return true  -- Continue executing
-    end
-    return true
-end
-
-function do_brain(e, depth)
-    if depth > 100 then
-        print("Infinite loop detected in enemy brain!")
-        return
-    end
-
-    local myBrain = brains[e.brain]
-    if e.bri < #myBrain then
-        local cmd = myBrain[e.bri]
-        local arg1 = myBrain[e.bri + 1]
-        local arg2 = myBrain[e.bri + 2]
-        local duration = myBrain[e.bri + 3] or 0
-
-        -- Cache command for repeated execution
-        e.cmd = cmd
-        e.cmd_arg1 = arg1
-        e.cmd_arg2 = arg2
-
-        if cmd == "WAIT" then
-            -- WAIT instruction: set wait time
-            e.wait = arg1
-        elseif duration > 0 then
-            e.wait = duration
-        end
-
-        e.bri += 4 -- Move to the next 4-element instruction
-
-        if e.wait == 0 then
-            depth = depth + 1
-            execute_cmd(e, cmd, arg1, arg2)
-            do_brain(e, depth) -- Immediately process the next instruction if not waiting
-        end
-    end
-end
-
 function draw_enemies()
     for e in all(enemies) do
         -- Enable flash frames
@@ -213,10 +149,32 @@ function draw_enemies()
             toggle_sprite_transparency(true)
         end
 
-        -- draw hitbox for debugging
+
         if debug then
+            -- draw hitbox for debugging
             rect(e.x-e.hw/2, e.y-e.hh/2, e.x+e.hw/2, e.y+e.hh/2, 7)
             pset(e.x, e.y, 8)
+
+            -- draw current command over enemy
+            if e.cmd then
+                print(e.cmd, e.x-4, e.y-12, 7)
+
+                if e.cmd == "LOS" then
+                    local dx = p_x - e.x
+                    local dy = p_y - e.y
+                    local angle_to_player = atan2(dx, dy)
+                    line(e.x, e.y, e.x + cos(angle_to_player) * 20, e.y + sin(angle_to_player) * 20, 8)
+                    line(e.x, e.y, e.x + cos(e.cmd_arg1) * 20, e.y + sin(e.cmd_arg1) * 20, 11)
+                    -- Print angle to player below enemy
+                    local within_range = abs(angle_to_player - e.cmd_arg1) < e.cmd_arg2
+                    print(""..(within_range and "true" or "false"), e.x-4, e.y-20, 7)
+                end
+
+                -- if cmd is WAIT, print wait time below enemy
+                if e.cmd == "WAIT" then
+                    print(""..e.wait, e.x-4, e.y-20, 7)
+                end
+            end
         end
     end
 end
