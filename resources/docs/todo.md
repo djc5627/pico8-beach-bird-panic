@@ -2,8 +2,7 @@
 
 ## Important
 
-- [ ] Enemy Behaviors
-  - [ ] Starfish (all) enemy hurts player on touch
+- [ ] Enable/disable debug mode via menu
 
 - [ ] Better player shooting
   - [ ] Bullet Splat
@@ -32,5 +31,4 @@
   - [ ] Add XP gain on enemy death
   - [ ] Add level up system
   - [ ] Add player stat upgrades on level up
-- [ ] Enable/disable debug mode via keypress
 - [ ] $$$ Shoot bullet takes angle and speed? Instead of spdx spdy
