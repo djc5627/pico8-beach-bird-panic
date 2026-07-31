@@ -17,6 +17,7 @@ function init_player()
     p_y = 30
     p_last_dir = 0
     p_health = 3
+    invincible_frames = 0
     player_bullets = {}
 end
 
@@ -27,6 +28,10 @@ function update_player()
 
     if p_flash_frames > 0 then
         p_flash_frames -= 1
+    end
+
+    if invincible_frames > 0 then
+        invincible_frames -= 1
     end
 
     if p_health <= 0 then
@@ -125,7 +130,6 @@ function handle_player_collisions()
         end
     end
 
-    -- TODO: WIP
     for e in all(enemies) do
         local collided = false
         collided = hit(
@@ -147,10 +151,14 @@ function handle_player_collisions()
 end
 
 function take_damage()
+    if invincible_frames > 0 then
+        return
+    end
     p_flash_frames = 6
     p_health -= 1
     if p_health > 0 then
         freeze_frames = 12
+        invincible_frames = 60
         sfx(3)
     end
 end
