@@ -12,6 +12,7 @@ brains = {
         "HED", 0.25, 0.5, 0,
         "WAIT", 30, 0, 0,
         "FOLPY", 0.5, 0, -1,
+        "ANIM", 2, 1, 0,
         "HED", 0.25, 2, -1
     }
 }
@@ -51,8 +52,8 @@ function add_launch_enemy(health, hw, hh)
         ang=0,
         sx=0,
         sy=0,
-        ani={9},
-        anis=10,
+        ani={9,10},
+        anis=0,
         age=0,
         brain = 2, -- index of brain to use
         bri = 1, -- index of brain instruction to use

@@ -30,6 +30,12 @@ function execute_cmd(e, cmd, arg1, arg2)
         local spdx = cos(arg1) * arg2
         local spdy = sin(arg1) * arg2
         add_enemy_bullet(e.x, e.y, spdx, spdy, 3, 3)
+    elseif cmd == "ANIM" then
+        -- Change animation index and speed
+        -- TODO: Anim change logic is broken, need to implement a proper animation system
+        e.age = arg1
+        e.anis = arg2
+        return true
     end
 end
 

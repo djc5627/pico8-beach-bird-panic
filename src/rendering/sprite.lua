@@ -17,7 +17,8 @@ sprites = {
     {24, 16, 8, 8, false, 4, 4}, -- 6) Enemy Bullet
     {0, 40, 42, 57, false, 0, 0}, -- 7) Palm Tree
     {26, 26, 16, 8, false, 0, 0}, -- 8) Cloud
-    {40, 0, 19, 21, false, 10, 11} -- 9) Starfish
+    {40, 0, 19, 21, false, 10, 11}, -- 9) Starfish
+    {61, 0, 23, 16, false, 11, 8} -- 10) Starfish Spin
 }
 
 function draw_sprite(index, x, y)
