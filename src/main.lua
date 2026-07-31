@@ -8,6 +8,7 @@ function _init()
     init_enemy_spawner()
     score = 0
     parts={}
+    update_menu()
 
     -- Disables btnp auto-repeat globally
     -- Did this so held button doesn't auto-restart
@@ -82,4 +83,15 @@ function toggle_sprite_transparency(enable)
         palt(0, true)
         palt(1, false)
     end
+end
+
+function update_menu()
+    local label = "debug [off]"
+    if debug then label = "debug [on]" end
+
+    menuitem(1, label, function()
+            debug = not debug
+            update_menu()
+            return true -- keeps menu active/updates
+        end)
 end

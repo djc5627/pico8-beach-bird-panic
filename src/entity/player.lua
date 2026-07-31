@@ -19,6 +19,7 @@ function init_player()
     p_health = 3
     invincible_frames = 0
     player_bullets = {}
+    my_bool = true
 end
 
 function update_player()

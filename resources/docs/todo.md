@@ -2,7 +2,7 @@
 
 ## Important
 
-- [ ] Enable/disable debug mode via menu
+- [X] Enable/disable debug mode via menu
 
 - [ ] Better player shooting
   - [ ] Bullet Splat
