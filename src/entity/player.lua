@@ -121,14 +121,37 @@ function handle_player_collisions()
             b.y - b.hh/2 + b.spdy
         )
         if collided then
-            del(enemy_bullets, b)
-            p_flash_frames = 6
-            p_health -= 1
-            if p_health > 0 then
-                freeze_frames = 12
-                sfx(3)
-            end
+            take_damage()
         end
+    end
+
+    -- TODO: WIP
+    for e in all(enemies) do
+        local collided = false
+        collided = hit(
+            e.x - e.hw/2,
+            e.y - e.hh/2,
+            e.hw,
+            e.hh,
+            p_x-p_hw/2,
+            p_y-p_hh/2,
+            p_hw,
+            p_hh,
+            e.x - e.hw/2 + e.spdx,
+            e.y - e.hh/2 + e.spdy
+        )
+        if collided then
+            take_damage()
+        end
+    end
+end
+
+function take_damage()
+    p_flash_frames = 6
+    p_health -= 1
+    if p_health > 0 then
+        freeze_frames = 12
+        sfx(3)
     end
 end
 
