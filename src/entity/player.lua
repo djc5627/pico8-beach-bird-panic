@@ -137,8 +137,8 @@ function handle_player_collisions()
             p_y-p_hh/2,
             p_hw,
             p_hh,
-            e.x - e.hw/2 + e.spdx,
-            e.y - e.hh/2 + e.spdy
+            e.x - e.hw/2 + cos(e.ang) * e.spd,
+            e.y - e.hh/2 + sin(e.ang) * e.spd
         )
         if collided then
             take_damage()
