@@ -3,7 +3,7 @@
 
 --[[
 sprites = {
-    {spritex, spritey, width, height, mirrorx, offsetx, offsety},
+    {spritex, spritey, width, height, mirrorx, offsetx, offsety, next_sprite_index, next_sprite},
     ...
 }
 --]]
@@ -18,7 +18,9 @@ sprites = {
     {0, 40, 42, 57, false, 0, 0}, -- 7) Palm Tree
     {26, 26, 16, 8, false, 0, 0}, -- 8) Cloud
     {40, 0, 19, 21, false, 10, 11}, -- 9) Starfish
-    {61, 0, 23, 16, false, 11, 8} -- 10) Starfish Spin
+    {61, 0, 23, 16, false, 11, 8}, -- 10) Starfish Spin
+    {0, 26, 14, 14, false, 7, 6, 12}, -- 11) Person w Parachute
+    {42, 24, 14, 10, false, 8, 15} -- 12) Parachute
 }
 
 function draw_sprite(index, x, y)
@@ -51,6 +53,10 @@ function draw_sprite(index, x, y)
                 true,
                 false
             )
+    end
+
+    if sprite[8] then
+        draw_sprite(sprite[8], x, y)
     end
 end
 

@@ -1,7 +1,7 @@
 enemies = {}
 brains = {
     { -- 1) Walk left enemy
-        "HED", 0.25, 0.5, 0,
+        "HED", 0.5, 0.5, 0,
         "LOS", 0.35, .005, -1,
         "HED", 0, 0, 0,
         "WAIT", 30, 0, 0,
@@ -9,11 +9,15 @@ brains = {
         "WAIT", 60, 0, 0,
     },
     { -- 2) Launch enemy
-        "HED", 0.25, 0.5, 0,
-        "WAIT", 30, 0, 0,
         "FOLPY", 0.5, 0, -1,
         "ANIM", 2, 1, 0,
-        "HED", 0.25, 2, -1
+        "HED", 0.5, 2, -1
+    },
+    { -- 3) Parachute enemy
+        "HED", 0.65, 0.5, 0,
+        "LOS", 0.5, .005, -1,
+        "SHOOT", 0.5, 1, 0,
+        "WAIT", 60, 0, 0,
     }
 }
 
@@ -41,9 +45,33 @@ function add_walk_enemy(health, hw, hh)
     })
 end
 
-function add_launch_enemy(health, hw, hh)
+function add_parachute_enemy(health, hw, hh)
     add(enemies, {
         x=128,
+        y=10,
+        health=health,
+        hw=hw, --hitbox width
+        hh=hh, --hitbox height
+        spd=1,
+        ang=0,
+        sx=0,
+        sy=0,
+        ani={11},
+        anis=10,
+        age=0,
+        brain = 3, -- index of brain to use
+        bri = 1, -- index of brain instruction to use
+        wait = 0, -- wait counter for brain instructions
+        cmd = nil, -- current command being executed
+        cmd_arg1 = 0, -- command args cached
+        cmd_arg2 = 0,
+        flash_frames=0
+    })
+end
+
+function add_launch_enemy(health, hw, hh)
+    add(enemies, {
+        x=116,
         y=-10,
         health=health,
         hw=hw, --hitbox width
@@ -82,8 +110,8 @@ function update_enemies()
         end
 
         -- Move Enemy
-        e.sx = sin(e.ang) * e.spd
-        e.sy = cos(e.ang) * e.spd
+        e.sx = cos(e.ang) * e.spd
+        e.sy = sin(e.ang) * e.spd
 
         e.x += e.sx
         e.y += e.sy

@@ -2,8 +2,6 @@
 
 ## Important
 
-- [X] Enable/disable debug mode via menu
-
 - [ ] Better player shooting
   - [ ] Bullet Splat
   - [ ] Bullet Stamina Meter
@@ -32,3 +30,8 @@
   - [ ] Add level up system
   - [ ] Add player stat upgrades on level up
 - [ ] $$$ Shoot bullet takes angle and speed? Instead of spdx spdy
+- [ ] $$$ Consolidate separate add enemy types method
+
+## Ideas
+
+- [ ] Enemies drop XP orbs that forces player vulnerable to damage while collecting them

@@ -6,9 +6,9 @@ function execute_cmd(e, cmd, arg1, arg2)
     elseif cmd == "FOLPY" then
         e.spd = arg1
         if p_y < e.y then
-            e.ang = 0.5 -- Move up
+            e.ang = 0.25 -- Move up
         else
-            e.ang = 0 -- Move down
+            e.ang = 0.75 -- Move down
         end
 
         -- Self-interrupt: if player is within 3 units, stop
