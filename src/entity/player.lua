@@ -128,6 +128,7 @@ function handle_player_collisions()
         )
         if collided then
             take_damage()
+            del(enemy_bullets, b)
         end
     end
 
@@ -147,6 +148,7 @@ function handle_player_collisions()
         )
         if collided then
             take_damage()
+            del(enemies, e)
         end
     end
 end
