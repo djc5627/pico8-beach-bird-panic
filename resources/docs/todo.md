@@ -31,6 +31,9 @@
   - [ ] Add player stat upgrades on level up
 - [ ] $$$ Shoot bullet takes angle and speed? Instead of spdx spdy
 - [ ] $$$ Consolidate separate add enemy types method
+- [ ] Move animation data to separate object like sprites
+  - [ ] Entities store the animation index like sprite index
+  - [ ] This allows enemy brain commands to switch animations
 
 ## Ideas
 
